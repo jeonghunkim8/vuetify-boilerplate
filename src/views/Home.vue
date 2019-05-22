@@ -1,18 +1,29 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+  <HelloWorld :count="count" :doubledCount="doubledCount" @onIncr="incr"/>
 </template>
 
+
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { namespace, State, Action, Getter } from 'vuex-class';
+import HelloWorld from '@/components/HelloWorld.vue';
+
+const CountStoreModule = namespace('CountStore');
 
 @Component({
   components: {
     HelloWorld,
-  },
+  }
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  @CountStoreModule.State('count')
+  private count!: number;
+
+  @CountStoreModule.Getter('doubledCount')
+  private doubledCount!: number;
+
+  @CountStoreModule.Action('incr')
+  private incr!: (delta: number) => void;
+
+}
 </script>

@@ -14,6 +14,12 @@
     "interface-name": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "no-consecutive-blank-lines": false
+    "no-consecutive-blank-lines": false,
+    "no-trailing-whitespace": false,
+    "no-empty": false,
+    "trailing-comma": false,
+    "comment-format": false,
+    "max-line-length": false,
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case", "allow-snake-case"]
   }
 }

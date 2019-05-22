@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+/dist-*
 
 # local env files
 .env.local
@@ -18,4 +19,8 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.sw*
+
+#npm, yarn
+#yarn.lock
+package-lock.json
