@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --port 3000",
-    "build-local": "vue-cli-service build --mode local",
-    "build-dev": "vue-cli-service build --mode dev",
-    "build-stage": "vue-cli-service build --mode stage",
-    "build-prod": "vue-cli-service build --mode prod",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-dev": "vue-cli-service build --mode dev",
+    "build-local": "vue-cli-service build --mode local",
+    "build-prod": "vue-cli-service build --mode prod",
+    "build-stage": "vue-cli-service build --mode stage"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -28,6 +28,7 @@
     "@vue/cli-plugin-babel": "^3.7.0",
     "@vue/cli-plugin-typescript": "^3.7.0",
     "@vue/cli-service": "^3.7.0",
+    "axios": "^0.18.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",
