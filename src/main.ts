@@ -11,6 +11,12 @@ import Vuetify from 'vuetify/lib';
 import 'vuetify/src/stylus/app.styl';
 Vue.use(Vuetify, {
   iconfont: 'md',
+  theme: { //기본 color 설정 가능
+    // primary: colors.purple,
+    // secondary: colors.grey.darken1,
+    // accent: colors.shades.black,
+    // error: colors.red.accent3
+  }
 });
 
 

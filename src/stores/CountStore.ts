@@ -1,7 +1,6 @@
 import { Module, VuexModule, Mutation, Action, MutationAction } from 'vuex-module-decorators';
-import Logger from '@/utils/Logger';
-import User from '@/types/User';
-import HttpHelper from '@/utils/HttpHelper';
+import { Logger, HttpHelper } from '@/utils';
+import { User } from '@/types';
 
 @Module({namespaced: true})
 export default class CountStore extends VuexModule {
@@ -32,7 +31,7 @@ export default class CountStore extends VuexModule {
   //mutation + action
   @MutationAction({ mutate: ['users'] })
   public async getUserList(a: string) {
-    const response = await HttpHelper.get<User[]>('http://localhost/users.json');
+    const response = await HttpHelper.get<User[]>('/users.json');
     Logger.debug(response.data);
     return {
       users: response.data

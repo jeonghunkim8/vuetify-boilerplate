@@ -13,8 +13,8 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { namespace, State, Action, Getter } from 'vuex-class';
-import Logger from '../utils/Logger';
-import User from '../types/User';
+import { Logger } from '@/utils';
+import { User } from '@/types';
 
 const CountStoreModule = namespace('CountStore');
 

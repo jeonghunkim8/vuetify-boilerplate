@@ -1,5 +1,5 @@
 import httpClient, { AxiosResponse, AxiosError, AxiosRequestConfig, AxiosPromise } from 'axios';
-import Logger from './Logger';
+import { Logger } from '@/utils';
 import { HttpStatus } from '@/types/enums/HttpStatus';
 
 export interface HttpResponse<T = any> {
@@ -21,7 +21,7 @@ const resultHandler = (promise: AxiosPromise<AxiosResponse>) => {
 export default class HttpHelper {
 
   public static config: AxiosRequestConfig = {
-    // baseURL: '', 
+    baseURL: process.env.VUE_APP_BASE_API_URL, 
     timeout: 10 * 1000,
     // headers: {'X-Custom-Header': 'foobar'}
   };

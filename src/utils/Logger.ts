@@ -1,14 +1,14 @@
-import {LogLevel as LOG_LEVEL} from '@/types/enums/LogLevel';
+import { LogLevel } from '@/types/enums';
 
 const noop = () => undefined;
-const logLevel: LOG_LEVEL = LOG_LEVEL.DEBUG;
+const logLevel: LogLevel = process.env.VUE_APP_DEBUG_LEVEL;
 
 export default class Logger {
 
   private static c: Console = console;
 
   public static get debug() {
-    if (logLevel <= LOG_LEVEL.DEBUG) {
+    if (logLevel <= LogLevel.DEBUG) {
       return this.c.log.bind(console);
     } else {
       return noop;
@@ -16,7 +16,7 @@ export default class Logger {
   }
 
   public static get info() {
-    if (logLevel <= LOG_LEVEL.INFO) {
+    if (logLevel <= LogLevel.INFO) {
       return this.c.info.bind(console);
     } else {
       return noop;
@@ -24,7 +24,7 @@ export default class Logger {
   }
 
   public static get warn() {
-    if (logLevel <= LOG_LEVEL.WARN) {
+    if (logLevel <= LogLevel.WARN) {
       return this.c.warn.bind(console);
     } else {
       return noop;
@@ -32,7 +32,7 @@ export default class Logger {
   }
 
   public static get error() {
-    if (logLevel <= LOG_LEVEL.ERROR) {
+    if (logLevel <= LogLevel.ERROR) {
       return this.c.error.bind(console);
     } else {
       return noop;

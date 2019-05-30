@@ -6,7 +6,7 @@
     >
       <v-flex xs12>
         <v-img
-          :src="require('../assets/logo.svg')"
+          :src="require('@/assets/logo.svg')"
           class="my-3"
           contain
           height="200"
@@ -14,8 +14,8 @@
       </v-flex>
 
       <v-flex mb-4>
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
+        <h1 class="display-2 font-weight-bold mb-3 font-color-kurly">
+          Welcome to Kurly
         </h1>
         <p class="subheading font-weight-regular">
           For help and collaboration with other Vuetify developers,
@@ -79,9 +79,18 @@
 <script lang="ts">
 import { Component, Prop, Vue, Model, Emit } from 'vue-property-decorator';
 
+@Component
+export default class HelloWorld extends Vue {
+  @Prop()
+  public count?: number;
 
-@Component({
-  data: () => {
+  @Prop()
+  public doubledCount?: number;
+
+  @Emit('onIncr')
+  public incr(delta: number) {}
+
+  private data() {
     return {
       importantLinks: [
         {
@@ -121,20 +130,12 @@ import { Component, Prop, Vue, Model, Emit } from 'vue-property-decorator';
       ]
     };
   }
-})
-export default class HelloWorld extends Vue {
-  @Prop()
-  private count?: number;
-
-  @Prop()
-  private doubledCount?: number;
-
-  @Emit('onIncr')
-  private incr(delta: number) {}
 
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.font-color-kurly{
+  color: $KurlyPurple;
+}
 </style>
